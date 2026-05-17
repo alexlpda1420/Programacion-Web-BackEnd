@@ -30,24 +30,6 @@ El objetivo del curso es profundizar en la lógica de programación del lado del
 
 ---
 
-## Proyecto destacado: Login
-
-La tarea de login tiene como objetivo crear un sistema básico que permita validar un usuario y una contraseña.
-
-### Archivos principales
-
-| Archivo | Función |
-|---|---|
-| `login.html` | Formulario donde el usuario carga sus datos |
-| `login.php` | Recibe los datos del formulario y valida el acceso |
-| `error.html` | Página opcional para informar errores de inicio de sesión |
-
-Acceso directo al proyecto:
-
-[Ver tarea Login](./tarea-login/)
-
----
-
 ## Tecnologías utilizadas
 
 - HTML5
@@ -56,23 +38,6 @@ Acceso directo al proyecto:
 - Git
 - GitHub
 - XAMPP
-
----
-
-## Estructura del repositorio
-
-```bash
-Programacion-Web-BackEnd/
-│
-├── tarea-login/
-│   ├── login.html
-│   ├── login.php
-│   └── error.html
-│
-├── tarea3/
-│
-└── README.md
-```
 
 ---
 
@@ -137,6 +102,5 @@ Se irán agregando nuevas tareas y prácticas a medida que avance el curso.
 
 <div align="center">
 
-### Programar es convertir café en soluciones ☕
 
 </div>
