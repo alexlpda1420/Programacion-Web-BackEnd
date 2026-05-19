@@ -27,6 +27,7 @@ El objetivo del curso es profundizar en la lógica de programación del lado del
 |---|---|---|
 | Tarea 3 | Práctica de estructuras de control | [Ver carpeta](./tarea3/) |
 | Tarea Login | Login con validación de usuario y contraseña | [Ver carpeta](./tarea-login/) |
+| Tarea Bucles | Estructura de control y bucles | [Ver carpeta](./tarea4-bucles/) |
 
 ---
 
