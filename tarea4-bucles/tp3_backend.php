@@ -14,9 +14,9 @@ for ($i = 1; $i <= 100; $i++) {
 
 // Ejercicio 2: Imprimir los números del 100 al 1
 
-echo "<h2>2. Números del 100 al 1</h2";
+echo "<h2>2. Números del 100 al 1</h2>";
 
-for ($i = 100; $i >= 1; $i++) {
+for ($i = 100; $i >= 1; $i--) {
     echo $i . "<br>";
 }
 
@@ -56,3 +56,5 @@ for ($i = 2; $i <= 20; $i += 2) {
     $suma_pares += $i;
 }
 echo "La suma de los números pares es: " . $suma_pares . "<br>";
+
+?>
