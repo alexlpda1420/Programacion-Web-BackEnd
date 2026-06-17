@@ -31,6 +31,7 @@ El objetivo del curso es profundizar en la lógica de programación del lado del
 | Tarea Arrays | Estructura de Arrays | [Ver carpeta](./tarea5-arrays/) |
 | Tarea Base de Datos |Creacion base de Datos| [Ver carpeta](./tarea-base-de-datos/) |
 | Tarea Select |Consultas a Base de Datos | [Ver carpeta](./tarea-select/) |
+| Proyecto Final |Desarrollo del proyecto final | [Ver carpeta](./Proyecto-Final/) |
 
 ---
 
