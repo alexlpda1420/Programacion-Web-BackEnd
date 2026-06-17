@@ -1,67 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="tienda.css?v=3">
+  <title>DeCompritas - Administracion</title>
 </head>
 <body>
-    <h1>Tienda de ropa</h1>
-    <button type="submit"><a href="index.php">Inicio</a></button>
-    <button type="submit"><a href="listar.php">Listar ropa</a></button>
-    <button type="submit"><a href="agregar.html">Agregar ropa</a></button>
-    <h2>Lista de ropa</h2>
-    <p>La siguiente lista muestra los datos de la ropa actualmente en stock.</p>
-    <table border="1">
-    <tr>
-        <th>ID</th>
-        <th>TIPO DE PRENDA</th>
-        <th>MARCA</th>
-        <th>TALLE</th>
-        <th>PRECIO</th>
-        <th>IMAGEN</th>
-        <th>EDITAR</th>
-        <th>BORRAR</th>
-    </tr>
-    <?php
-    // 1) Conexion
-    $conexion = mysqli_connect("127.0.0.1", "root", "");
-    mysqli_select_db($conexion, "tienda");
+  <div class="page-wrapper">
+    <header class="site-header">
+      <div class="top-bar py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+          <span>Proyecto Final Backend</span>
+          <span><a href="index.php">Ver tienda</a> | <a href="agregar.html">Agregar prenda</a></span>
+        </div>
+      </div>
 
+      <nav class="navbar navbar-expand-lg navbar-light main-navbar">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="index.php">
+            <img class="brand-logo" src="img/logo-decompritas.svg" alt="DeCompritas - Ropa y accesorios">
+          </a>
 
-    // 2) Preparar la orden SQL
-    // Sintaxis SQL SELECT
-    // SELECT * FROM nombre_tabla
-    // => Selecciona todos los campos de la siguiente tabla
-    // SELECT campos_tabla FROM nombre_tabla
-    // => Selecciona los siguientes campos de la siguiente tabla
-    $consulta='SELECT * FROM ropa';
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-    // 3) Ejecutar la orden y obtenemos los registros
-    $datos= mysqli_query($conexion, $consulta);
+          <div class="collapse navbar-collapse" id="menuPrincipal">
+            <ul class="navbar-nav mb-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="nike.php">Nike</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="nikexl.php">Nike XL</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="listar.php">Listar</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn-admin text-decoration-none" href="agregar.html">Agregar</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-    /*nueva forma con foreach
-    while ($reg=mysqli_fetch_array($datos, MYSQLI_ASSOC)){
-      foreach ($reg as $key => $value) {
-        print ("<p>$key: $value</p>\n");
-      };
-    };*/
+    <section class="page-hero">
+      <div class="container">
+        <span class="hero-kicker">Panel administrador</span>
+        <h1>Lista de ropa</h1>
+        <p>La siguiente tabla muestra los datos de la ropa actualmente cargada en stock.</p>
+      </div>
+    </section>
 
-    // 4) Mostrar los datos del registro
-     while ($reg=mysqli_fetch_array($datos)) { ?>
-        <tr>
-        <td><?php echo $reg['id']; ?></td>
-        <td><?php echo $reg['prenda']; ?></td>
-        <td><?php echo $reg['marca']; ?></td>
-        <td><?php echo $reg['talle']; ?></td>
-        <td><?php echo $reg['precio']; ?></td>
-        <td><img src="data:image/png;base64, <?php echo base64_encode($reg['imagen'])?>" alt="" width="100px" height="100px"></td>
-        <td><a href="modificar.php?id=<?php echo $reg['id'];?>">Editar</a></td>
-        <td><a href="borrar.php?id=<?php echo $reg['id'];?>">Borrar</a></td>
-        </tr>
-    <?php } ?>
-  </table>
+    <main class="admin-section">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+          <div>
+            <h2 class="section-title text-md-start mb-2">Prendas cargadas</h2>
+            <p class="mb-0">Desde aca podes editar o borrar registros.</p>
+          </div>
+          <a class="btn btn-pink" href="agregar.html">Agregar ropa</a>
+        </div>
 
+        <div class="admin-card">
+          <div class="table-responsive">
+            <table class="table table-admin table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tipo de prenda</th>
+                  <th>Marca</th>
+                  <th>Talle</th>
+                  <th>Precio</th>
+                  <th>Imagen</th>
+                  <th>Editar</th>
+                  <th>Borrar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                // 1) Conexion
+                $conexion = mysqli_connect("127.0.0.1", "root", "");
+                mysqli_select_db($conexion, "tienda");
+
+                // 2) Preparar la orden SQL
+                $consulta = 'SELECT * FROM ropa';
+
+                // 3) Ejecutar la orden y obtenemos los registros
+                $datos = mysqli_query($conexion, $consulta);
+
+                // 4) Mostrar los datos del registro
+                while ($reg = mysqli_fetch_array($datos)) { ?>
+                  <tr>
+                    <td><?php echo $reg['id']; ?></td>
+                    <td><?php echo htmlspecialchars($reg['prenda']); ?></td>
+                    <td><?php echo htmlspecialchars($reg['marca']); ?></td>
+                    <td><?php echo htmlspecialchars($reg['talle']); ?></td>
+                    <td>$ <?php echo htmlspecialchars($reg['precio']); ?></td>
+                    <td>
+                      <img class="table-image" src="data:image/jpg;base64,<?php echo base64_encode($reg['imagen']); ?>" alt="Prenda <?php echo htmlspecialchars($reg['marca']); ?>">
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-gray" href="modificar.php?id=<?php echo $reg['id']; ?>">Editar</a>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-pink" href="borrar.php?id=<?php echo $reg['id']; ?>">Borrar</a>
+                    </td>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row align-items-center gy-3">
+          <div class="col-md-6">
+            <h2 class="h5 mb-1">DeCompritas</h2>
+            <p class="mb-0 text-white-50">Proyecto final de Programacion Web Backend.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <a class="me-3" href="index.php">Inicio</a>
+            <a class="me-3" href="agregar.html">Agregar</a>
+            <a href="login.html">Login</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

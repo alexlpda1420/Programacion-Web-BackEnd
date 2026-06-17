@@ -1,34 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Potrero</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="tienda.css?v=3">
+  <title>DeCompritas - Agregar ropa</title>
 </head>
 <body>
-    <h1>Tienda Potrero</h1>
-    <button type="submit"><a href="index.php">Inicio</a></button>
-    <button type="submit"><a href="listar.php">Listar ropa</a></button>
-    <button type="submit"><a href="agregar.html">Agregar ropa</a></button>
-    <h2>Agregar ropa</h2>
-    <p>Ingrese los datos de la prenda.</p>
+  <div class="page-wrapper">
+    <header class="site-header">
+      <div class="top-bar py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+          <span>Proyecto Final Backend</span>
+          <span><a href="index.php">Ver tienda</a> | <a href="listar.php">Listar ropa</a></span>
+        </div>
+      </div>
 
+      <nav class="navbar navbar-expand-lg navbar-light main-navbar">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="index.php">
+            <img class="brand-logo" src="img/logo-decompritas.svg" alt="DeCompritas - Ropa y accesorios">
+          </a>
 
-    <form method="POST" action="agregar.php" enctype="multipart/form-data">
-        <label>Tipo de prenda</label>
-        <input type="text" name="prenda" placeholder="Tipo de prenda" required>
-        <label>Marca</label>
-        <input type="text" name="marca" placeholder="Marca" required>
-        <label>Talle</label>
-        <input type="text" name="talle" placeholder="Talle" required>
-        <label>Precio</label>
-        <input type="text" name="precio" placeholder="Precio" required>
-        <label>Imagen</label>
-        <input type="file" name="imagen" placeholder="imagen" required >
-        <input type="submit" name="submit" value="Ingresar">
-    </form>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
+          <div class="collapse navbar-collapse" id="menuPrincipal">
+            <ul class="navbar-nav mb-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="nike.php">Nike</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="nikexl.php">Nike XL</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="listar.php">Listar</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn-admin text-decoration-none" href="agregar.html">Agregar</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
+    <section class="page-hero">
+      <div class="container">
+        <span class="hero-kicker">Panel administrador</span>
+        <h1>Agregar ropa</h1>
+        <p>Ingrese los datos de la prenda para cargarla en el catalogo.</p>
+      </div>
+    </section>
+
+    <main class="admin-section">
+      <div class="container">
+        <div class="admin-card">
+          <form method="POST" action="agregar.php" enctype="multipart/form-data">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label" for="prenda">Tipo de prenda</label>
+                <input class="form-control" type="text" id="prenda" name="prenda" placeholder="Tipo de prenda" required>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="marca">Marca</label>
+                <input class="form-control" type="text" id="marca" name="marca" placeholder="Marca" required>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="talle">Talle</label>
+                <input class="form-control" type="text" id="talle" name="talle" placeholder="Talle" required>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="precio">Precio</label>
+                <input class="form-control" type="text" id="precio" name="precio" placeholder="Precio" required>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label" for="imagen">Imagen</label>
+                <input class="form-control" type="file" id="imagen" name="imagen" accept="image/*" required>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+              <button class="btn btn-pink" type="submit" name="submit">Ingresar</button>
+              <a class="btn btn-gray" href="listar.php">Cancelar</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row align-items-center gy-3">
+          <div class="col-md-6">
+            <h2 class="h5 mb-1">DeCompritas</h2>
+            <p class="mb-0 text-white-50">Proyecto final de Programacion Web Backend.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <a class="me-3" href="index.php">Inicio</a>
+            <a class="me-3" href="listar.php">Listar</a>
+            <a href="login.html">Login</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
