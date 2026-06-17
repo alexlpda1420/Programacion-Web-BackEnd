@@ -61,7 +61,7 @@ body {
   min-height: 58px;
   margin-right: 0;
   padding: 0 24px 0 18px;
-  background-color: var(--color-blanco);
+  background-color: transparent;
   color: #8a8a8a !important;
 }
 
@@ -70,6 +70,7 @@ body {
   max-width: 48vw;
   height: auto;
   display: block;
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.35));
 }
 
 .main-navbar .navbar-nav {
@@ -169,6 +170,36 @@ body {
   max-width: 470px;
   margin-left: auto;
   padding: 60px 0;
+}
+
+.hero-home {
+  min-height: 560px;
+}
+
+.hero-home .hero-content {
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.hero-logo {
+  width: clamp(260px, 44vw, 500px);
+  height: auto;
+  display: block;
+  margin: 0 auto 24px;
+  filter:
+    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 16px rgba(255, 255, 255, 0.34));
+}
+
+.hero-home p {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.hero-home .d-flex {
+  justify-content: center !important;
 }
 
 .hero-kicker {
