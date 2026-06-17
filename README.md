@@ -28,8 +28,9 @@ El objetivo del curso es profundizar en la lógica de programación del lado del
 | Tarea 3 | Práctica de estructuras de control | [Ver carpeta](./tarea3/) |
 | Tarea Login | Login con validación de usuario y contraseña | [Ver carpeta](./tarea-login/) |
 | Tarea Bucles | Estructura de control y bucles | [Ver carpeta](./tarea4-bucles/) |
-| Tarea Arrays | [Ver carpeta](./tarea5-arrays/) |
-| Tarea Base de Datos | [Ver carpeta](./tarea-base-de-datos/) |
+| Tarea Arrays | Estructura de Arrays | [Ver carpeta](./tarea5-arrays/) |
+| Tarea Base de Datos |Creacion base de Datos| [Ver carpeta](./tarea-base-de-datos/) |
+| Tarea Select |Consultas a Base de Datos | [Ver carpeta](./tarea-select/) |
 
 ---
 
