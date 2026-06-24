@@ -34,6 +34,12 @@ El sitio cuenta con una vista pública tipo catálogo y un panel administrativo 
 - Catálogo de productos cargados desde MySQL.
 - Cards de productos con imagen, marca, talle, prenda y precio.
 - Botón **Ver detalles** con modal de información completa.
+- Botón **Comprar ahora** por producto mediante link de compra.
+- Carrito de compras con sesiones PHP.
+- Suma, resta, eliminacion y vaciado de productos seleccionados.
+- Pantalla de resumen para preparar la compra total.
+- Checkout simple con datos del comprador.
+- Confirmacion final del pedido y vaciado automatico del carrito.
 - Filtro de productos de marca **Nike**.
 - Filtro de productos **Nike XL**.
 - Login de administrador.
@@ -50,10 +56,17 @@ El sitio cuenta con una vista pública tipo catálogo y un panel administrativo 
 | Inicio / catálogo | `Proyecto-Final/index.php` |
 | Productos Nike | `Proyecto-Final/nike.php` |
 | Productos Nike XL | `Proyecto-Final/nikexl.php` |
+| Carrito de compras | `Proyecto-Final/carrito.php` |
+| Resumen de compra | `Proyecto-Final/comprar_carrito.php` |
+| Finalizar compra | `Proyecto-Final/finalizar_compra.php` |
+| Pedido confirmado | `Proyecto-Final/pedido_confirmado.php` |
 | Login administrador | `Proyecto-Final/login.html` |
 | Panel administrador | `Proyecto-Final/listar.php` |
 | Agregar prenda | `Proyecto-Final/agregar.html` |
 | Modificar prenda | `Proyecto-Final/modificar.php` |
+| Agregar al carrito | `Proyecto-Final/agregar_carrito.php` |
+| Quitar del carrito | `Proyecto-Final/quitar_carrito.php` |
+| Vaciar carrito | `Proyecto-Final/vaciar_carrito.php` |
 
 ---
 
@@ -134,7 +147,8 @@ CREATE TABLE ropa (
   marca VARCHAR(100) NOT NULL,
   talle VARCHAR(20) NOT NULL,
   precio DECIMAL(10, 2) NOT NULL,
-  imagen LONGBLOB NOT NULL
+  imagen LONGBLOB NOT NULL,
+  link_compra VARCHAR(255) NULL
 );
 ```
 
@@ -148,6 +162,18 @@ Campos utilizados por el proyecto:
 | `talle` | Talle disponible |
 | `precio` | Precio del producto |
 | `imagen` | Imagen guardada en la base de datos |
+| `link_compra` | Link externo para comprar el producto |
+
+Si la tabla ya existe, se puede agregar el campo de compra con:
+
+```sql
+ALTER TABLE ropa
+ADD COLUMN link_compra VARCHAR(255) NULL AFTER imagen;
+```
+
+El carrito de compras no requiere una tabla adicional en esta etapa. Los productos seleccionados se guardan temporalmente en `$_SESSION`, por eso cada usuario mantiene su propio carrito mientras navega por el sitio.
+
+La finalizacion de compra actual funciona como un flujo educativo: toma los datos del comprador, recalcula el pedido desde la sesion y la base de datos, muestra una confirmacion y vacia el carrito. La integracion de pago real con Mercado Pago queda preparada como una mejora posterior.
 
 ---
 
@@ -168,6 +194,7 @@ Contraseña: 12345
 
 - Comprender el flujo entre formularios HTML y scripts PHP.
 - Conectar PHP con una base de datos MySQL.
+- Usar sesiones PHP para mantener informacion entre paginas.
 - Ejecutar consultas `SELECT`, `INSERT`, `UPDATE` y `DELETE`.
 - Construir un ABM completo.
 - Mostrar imágenes almacenadas en base de datos.

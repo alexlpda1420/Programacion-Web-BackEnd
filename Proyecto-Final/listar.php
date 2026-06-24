@@ -43,6 +43,9 @@
                 <a class="nav-link active" aria-current="page" href="listar.php">Listar</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="carrito.php">Carrito</a>
+              </li>
+              <li class="nav-item">
                 <a class="btn-admin text-decoration-none" href="agregar.html">Agregar</a>
               </li>
             </ul>
@@ -80,6 +83,7 @@
                   <th>Talle</th>
                   <th>Precio</th>
                   <th>Imagen</th>
+                  <th>Compra</th>
                   <th>Editar</th>
                   <th>Borrar</th>
                 </tr>
@@ -108,6 +112,15 @@
                       <img class="table-image" src="data:image/jpg;base64,<?php echo base64_encode($reg['imagen']); ?>" alt="Prenda <?php echo htmlspecialchars($reg['marca']); ?>">
                     </td>
                     <td>
+                      <?php
+                      $linkCompra = trim($reg['link_compra'] ?? '');
+                      if (filter_var($linkCompra, FILTER_VALIDATE_URL)) { ?>
+                        <a class="btn btn-sm btn-pink" href="<?php echo htmlspecialchars($linkCompra); ?>" target="_blank" rel="noopener noreferrer">Abrir</a>
+                      <?php } else { ?>
+                        <span class="text-muted">Sin link</span>
+                      <?php } ?>
+                    </td>
+                    <td>
                       <a class="btn btn-sm btn-gray" href="modificar.php?id=<?php echo $reg['id']; ?>">Editar</a>
                     </td>
                     <td>
@@ -132,6 +145,7 @@
           <div class="col-md-6 text-md-end">
             <a class="me-3" href="index.php">Inicio</a>
             <a class="me-3" href="agregar.html">Agregar</a>
+            <a class="me-3" href="carrito.php">Carrito</a>
             <a href="login.html">Login</a>
           </div>
         </div>

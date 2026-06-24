@@ -17,6 +17,7 @@ if (isset($_POST['guardar_cambios'])) {
     $marca = mysqli_real_escape_string($conexion, $_POST['marca']);
     $talle = mysqli_real_escape_string($conexion, $_POST['talle']);
     $precio = mysqli_real_escape_string($conexion, $_POST['precio']);
+    $link_compra = mysqli_real_escape_string($conexion, $_POST['link_compra'] ?? '');
 
     if (isset($_FILES['imagen']) && $_FILES['imagen']['tmp_name'] != "") {
         $imagen_nueva = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
@@ -24,7 +25,7 @@ if (isset($_POST['guardar_cambios'])) {
         $imagen_nueva = addslashes(base64_decode($_POST['imagen_actual']));
     }
 
-    $consulta_actualizar = "UPDATE ropa SET prenda='$prenda', marca='$marca', talle='$talle', precio='$precio', imagen='$imagen_nueva' WHERE id=$id";
+    $consulta_actualizar = "UPDATE ropa SET prenda='$prenda', marca='$marca', talle='$talle', precio='$precio', imagen='$imagen_nueva', link_compra='$link_compra' WHERE id=$id";
     mysqli_query($conexion, $consulta_actualizar);
 
     header("location:listar.php");
@@ -46,6 +47,7 @@ $marca = $datos["marca"];
 $talle = $datos["talle"];
 $precio = $datos["precio"];
 $imagen = $datos['imagen'];
+$link_compra = $datos['link_compra'] ?? '';
 ?>
 
 <!DOCTYPE html>
@@ -91,6 +93,9 @@ $imagen = $datos['imagen'];
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="listar.php">Listar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="carrito.php">Carrito</a>
               </li>
               <li class="nav-item">
                 <a class="btn-admin text-decoration-none" href="agregar.html">Agregar</a>
@@ -144,6 +149,12 @@ $imagen = $datos['imagen'];
                 <input class="form-control" type="file" id="imagen" name="imagen" accept="image/*">
                 <small class="text-muted">Si no seleccionas una imagen nueva, se mantiene la actual.</small>
               </div>
+
+              <div class="col-12">
+                <label class="form-label" for="link_compra">Link de compra</label>
+                <input class="form-control" type="url" id="link_compra" name="link_compra" placeholder="https://www.mercadopago.com.ar/..." value="<?php echo htmlspecialchars($link_compra); ?>">
+                <small class="text-muted">Opcional. Puede ser un link de Mercado Pago, WhatsApp o una publicación externa.</small>
+              </div>
             </div>
 
             <input type="hidden" name="imagen_actual" value="<?php echo base64_encode($imagen); ?>">
@@ -167,6 +178,7 @@ $imagen = $datos['imagen'];
           <div class="col-md-6 text-md-end">
             <a class="me-3" href="index.php">Inicio</a>
             <a class="me-3" href="listar.php">Listar</a>
+            <a class="me-3" href="carrito.php">Carrito</a>
             <a href="agregar.html">Agregar</a>
           </div>
         </div>

@@ -1,0 +1,2 @@
+ALTER TABLE ropa
+ADD COLUMN link_compra VARCHAR(255) NULL AFTER imagen;

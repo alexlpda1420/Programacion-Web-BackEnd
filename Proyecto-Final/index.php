@@ -46,6 +46,9 @@
                 <a class="nav-link" href="#ofertas">Ofertas</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="carrito.php">Carrito</a>
+              </li>
+              <li class="nav-item">
                 <a class="btn-admin text-decoration-none" href="login.html">Admin</a>
               </li>
             </ul>
@@ -174,6 +177,8 @@
           // 4) Recorremos los registros y generamos una card para cada prenda
           while ($reg = mysqli_fetch_array($datos)) {
             $modalId = 'detalleProducto' . $reg['id'];
+            $linkCompra = trim($reg['link_compra'] ?? '');
+            $linkCompraValido = filter_var($linkCompra, FILTER_VALIDATE_URL);
           ?>
             <div class="col-sm-12 col-md-6 col-lg-3 product-col">
               <article class="card product-card">
@@ -183,9 +188,19 @@
                   <h3 class="card-title"><?php echo htmlspecialchars(ucwords($reg['marca'])); ?></h3>
                   <p class="card-text"><?php echo htmlspecialchars($reg['prenda']); ?></p>
                   <span class="product-price mt-auto">$ <?php echo htmlspecialchars($reg['precio']); ?></span>
-                  <button class="btn btn-pink btn-sm product-detail-btn" type="button" data-bs-toggle="modal" data-bs-target="#<?php echo $modalId; ?>">
-                    Ver detalles
-                  </button>
+                  <div class="product-actions">
+                    <a class="btn btn-gray btn-sm" href="agregar_carrito.php?id=<?php echo $reg['id']; ?>">
+                      Agregar al carrito
+                    </a>
+                    <?php if ($linkCompraValido) { ?>
+                      <a class="btn btn-pink btn-sm" href="<?php echo htmlspecialchars($linkCompra); ?>" target="_blank" rel="noopener noreferrer">
+                        Comprar ahora
+                      </a>
+                    <?php } ?>
+                    <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#<?php echo $modalId; ?>">
+                      Ver detalles
+                    </button>
+                  </div>
                 </div>
               </article>
 
@@ -213,8 +228,19 @@
                             <dd><?php echo htmlspecialchars(strtoupper($reg['talle'])); ?></dd>
                             <dt>Precio</dt>
                             <dd>$ <?php echo htmlspecialchars($reg['precio']); ?></dd>
+                            <dt>Link de compra</dt>
+                            <dd>
+                              <?php if ($linkCompraValido) { ?>
+                                <a class="btn btn-pink btn-sm" href="<?php echo htmlspecialchars($linkCompra); ?>" target="_blank" rel="noopener noreferrer">Comprar ahora</a>
+                              <?php } else { ?>
+                                <span class="text-muted">Este producto no tiene link de compra cargado.</span>
+                              <?php } ?>
+                            </dd>
                           </dl>
-                          <button class="btn btn-gray mt-2" type="button" data-bs-dismiss="modal">Cerrar</button>
+                          <div class="d-flex flex-column flex-sm-row gap-2 mt-2">
+                            <a class="btn btn-pink" href="agregar_carrito.php?id=<?php echo $reg['id']; ?>">Agregar al carrito</a>
+                            <button class="btn btn-gray" type="button" data-bs-dismiss="modal">Cerrar</button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -237,6 +263,7 @@
           <div class="col-md-6 text-md-end">
             <a class="me-3" href="index.php">Inicio</a>
             <a class="me-3" href="nike.php">Nike</a>
+            <a class="me-3" href="carrito.php">Carrito</a>
             <a href="login.html">Login</a>
           </div>
         </div>

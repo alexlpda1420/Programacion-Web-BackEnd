@@ -43,6 +43,9 @@
                 <a class="nav-link" href="listar.php">Listar</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="carrito.php">Carrito</a>
+              </li>
+              <li class="nav-item">
                 <a class="btn-admin text-decoration-none" href="agregar.html">Agregar</a>
               </li>
             </ul>
@@ -88,6 +91,12 @@
                 <label class="form-label" for="imagen">Imagen</label>
                 <input class="form-control" type="file" id="imagen" name="imagen" accept="image/*" required>
               </div>
+
+              <div class="col-12">
+                <label class="form-label" for="link_compra">Link de compra</label>
+                <input class="form-control" type="url" id="link_compra" name="link_compra" placeholder="https://www.mercadopago.com.ar/...">
+                <small class="text-muted">Opcional. Puede ser un link de Mercado Pago, WhatsApp o una publicación externa.</small>
+              </div>
             </div>
 
             <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
@@ -109,6 +118,7 @@
           <div class="col-md-6 text-md-end">
             <a class="me-3" href="index.php">Inicio</a>
             <a class="me-3" href="listar.php">Listar</a>
+            <a class="me-3" href="carrito.php">Carrito</a>
             <a href="login.html">Login</a>
           </div>
         </div>
