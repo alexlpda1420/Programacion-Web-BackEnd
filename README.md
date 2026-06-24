@@ -40,8 +40,13 @@ El sitio cuenta con una vista pública tipo catálogo y un panel administrativo 
 - Pantalla de resumen para preparar la compra total.
 - Checkout simple con datos del comprador.
 - Confirmacion final del pedido y vaciado automatico del carrito.
-- Filtro de productos de marca **Nike**.
-- Filtro de productos **Nike XL**.
+- Busqueda de productos por texto.
+- Filtros por marca, talle y rango de precio.
+- Ordenamiento por productos recientes, precio o marca.
+- Seccion de novedades generada desde la base de datos.
+- Seccion de mejores precios generada desde la base de datos.
+- Pagina institucional **Quienes somos**.
+- Pagina personalizada de error 404.
 - Login de administrador.
 - Panel para listar prendas.
 - Alta de nuevas prendas con imagen.
@@ -54,8 +59,10 @@ El sitio cuenta con una vista pública tipo catálogo y un panel administrativo 
 | Sección | Archivo |
 |---|---|
 | Inicio / catálogo | `Proyecto-Final/index.php` |
-| Productos Nike | `Proyecto-Final/nike.php` |
-| Productos Nike XL | `Proyecto-Final/nikexl.php` |
+| Busqueda y filtros | `Proyecto-Final/index.php#filtros` |
+| Catalogo de productos | `Proyecto-Final/index.php#productos` |
+| Quienes somos | `Proyecto-Final/quienes-somos.php` |
+| Pagina no encontrada | `Proyecto-Final/404.php` |
 | Carrito de compras | `Proyecto-Final/carrito.php` |
 | Resumen de compra | `Proyecto-Final/comprar_carrito.php` |
 | Finalizar compra | `Proyecto-Final/finalizar_compra.php` |

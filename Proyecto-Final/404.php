@@ -1,12 +1,17 @@
+<?php
+http_response_code(404);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="tienda.css">
-  <title>DeCompritas - Error de login</title>
+  <title>DeCompritas - Pagina no encontrada</title>
 </head>
 <body>
   <div class="page-wrapper">
@@ -30,10 +35,16 @@
                 <a class="nav-link" href="index.php#productos"><i class="bi bi-grid-3x3-gap nav-icon" aria-hidden="true"></i><span>Catalogo</span></a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="index.php#filtros"><i class="bi bi-search nav-icon" aria-hidden="true"></i><span>Buscar</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="quienes-somos.php"><i class="bi bi-people nav-icon" aria-hidden="true"></i><span>Nosotros</span></a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="carrito.php"><i class="bi bi-cart3 nav-icon" aria-hidden="true"></i><span>Carrito</span><span class="cart-count cart-count-js" hidden></span></a>
               </li>
               <li class="nav-item">
-                <a class="btn-admin text-decoration-none" href="login.html"><i class="bi bi-person-lock nav-icon" aria-hidden="true"></i><span>Login</span></a>
+                <a class="btn-admin text-decoration-none" href="login.html"><i class="bi bi-person-lock nav-icon" aria-hidden="true"></i><span>Admin</span></a>
               </li>
             </ul>
           </div>
@@ -41,21 +52,22 @@
       </nav>
     </header>
 
-    <section class="page-hero">
+    <main class="not-found-section">
       <div class="container">
-        <span class="hero-kicker">Administradores</span>
-        <h1>Error de login</h1>
-        <p>Usuario o contrasena incorrectos. Vuelve a intentarlo.</p>
-      </div>
-    </section>
+        <section class="not-found-card">
+          <span class="not-found-code">404</span>
+          <span class="hero-kicker">Pagina no encontrada</span>
+          <h1>Esta prenda no esta en nuestro catalogo</h1>
+          <p>
+            El enlace puede estar roto, la pagina pudo cambiar de lugar o quizas escribiste una direccion que no existe.
+          </p>
 
-    <main class="auth-section">
-      <div class="container">
-        <div class="auth-card text-center">
-          <h2 class="section-title mb-3">Acceso denegado</h2>
-          <p>Revisa los datos ingresados y prueba nuevamente.</p>
-          <a class="btn btn-pink" href="login.html">Volver</a>
-        </div>
+          <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center">
+            <a class="btn btn-pink" href="index.php">Volver al inicio</a>
+            <a class="btn btn-gray" href="index.php#productos">Ver catalogo</a>
+            <a class="btn btn-outline-secondary cart-empty-link" href="index.php#filtros">Buscar una prenda</a>
+          </div>
+        </section>
       </div>
     </main>
 
@@ -68,8 +80,8 @@
           </div>
           <div class="col-md-6 text-md-end">
             <a class="me-3" href="index.php">Inicio</a>
-            <a class="me-3" href="carrito.php">Carrito</a>
-            <a href="login.html">Login</a>
+            <a class="me-3" href="quienes-somos.php">Quienes somos</a>
+            <a href="carrito.php">Carrito</a>
           </div>
         </div>
       </div>

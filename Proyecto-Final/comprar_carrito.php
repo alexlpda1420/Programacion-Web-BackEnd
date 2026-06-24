@@ -68,19 +68,13 @@ if (!empty($carrito)) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="tienda.css">
   <title>DeCompritas - Comprar carrito</title>
 </head>
 <body>
   <div class="page-wrapper">
     <header class="site-header">
-      <div class="top-bar py-2">
-        <div class="container d-flex justify-content-between align-items-center">
-          <span>Proyecto Final Backend</span>
-          <span><a href="carrito.php">Volver al carrito</a> | <a href="login.html">Administradores</a></span>
-        </div>
-      </div>
-
       <nav class="navbar navbar-expand-lg navbar-light main-navbar">
         <div class="container">
           <a class="navbar-brand d-flex align-items-center" href="index.php">
@@ -94,19 +88,22 @@ if (!empty($carrito)) {
           <div class="collapse navbar-collapse" id="menuPrincipal">
             <ul class="navbar-nav mb-0">
               <li class="nav-item">
-                <a class="nav-link" href="index.php">Inicio</a>
+                <a class="nav-link" href="index.php"><i class="bi bi-house-door nav-icon" aria-hidden="true"></i><span>Inicio</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="nike.php">Nike</a>
+                <a class="nav-link" href="index.php#productos"><i class="bi bi-grid-3x3-gap nav-icon" aria-hidden="true"></i><span>Catalogo</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="nikexl.php">Nike XL</a>
+                <a class="nav-link" href="index.php#filtros"><i class="bi bi-search nav-icon" aria-hidden="true"></i><span>Buscar</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="carrito.php">Carrito</a>
+                <a class="nav-link" href="quienes-somos.php"><i class="bi bi-people nav-icon" aria-hidden="true"></i><span>Nosotros</span></a>
               </li>
               <li class="nav-item">
-                <a class="btn-admin text-decoration-none" href="login.html">Admin</a>
+                <a class="nav-link active" aria-current="page" href="carrito.php"><i class="bi bi-cart3 nav-icon" aria-hidden="true"></i><span>Carrito</span><span class="cart-count cart-count-js" hidden></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="btn-admin text-decoration-none" href="login.html"><i class="bi bi-person-lock nav-icon" aria-hidden="true"></i><span>Admin</span></a>
               </li>
             </ul>
           </div>
@@ -274,5 +271,6 @@ if (!empty($carrito)) {
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="navbar-carrito.js"></script>
 </body>
 </html>
