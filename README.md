@@ -47,6 +47,7 @@ El sitio cuenta con una vista pública tipo catálogo y un panel administrativo 
 - Seccion de mejores precios generada desde la base de datos.
 - Pagina institucional **Quienes somos**.
 - Pagina personalizada de error 404.
+- Boton flotante de ayuda con preguntas frecuentes y acceso a WhatsApp.
 - Login de administrador.
 - Panel para listar prendas.
 - Alta de nuevas prendas con imagen.
