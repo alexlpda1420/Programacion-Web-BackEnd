@@ -1,7 +1,6 @@
 <?php
 // 1) Conexion
-$conexion = mysqli_connect("127.0.0.1", "root", "");
-mysqli_select_db($conexion, "tienda");
+require_once __DIR__ . '/conexion.php';
 
 // 2) Almacenamos el ID recibido por GET
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;

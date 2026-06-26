@@ -21,8 +21,7 @@ function imagenProducto($producto) {
     return 'data:image/jpg;base64,' . base64_encode($producto['imagen']);
 }
 
-$conexion = mysqli_connect("127.0.0.1", "root", "");
-mysqli_select_db($conexion, "tienda");
+require_once __DIR__ . '/conexion.php';
 
 $buscar = trim($_GET['buscar'] ?? '');
 $marcaFiltro = trim($_GET['marca'] ?? '');

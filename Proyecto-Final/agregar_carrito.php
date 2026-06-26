@@ -8,8 +8,7 @@ if ($id <= 0) {
     exit;
 }
 
-$conexion = mysqli_connect("127.0.0.1", "root", "");
-mysqli_select_db($conexion, "tienda");
+require_once __DIR__ . '/conexion.php';
 
 $consulta = "SELECT id FROM ropa WHERE id=$id LIMIT 1";
 $respuesta = mysqli_query($conexion, $consulta);

@@ -32,8 +32,7 @@ unset($_SESSION['checkout_form']);
 if (!empty($carrito)) {
     $ids = implode(',', array_map('intval', array_keys($carrito)));
 
-    $conexion = mysqli_connect("127.0.0.1", "root", "");
-    mysqli_select_db($conexion, "tienda");
+    require_once __DIR__ . '/conexion.php';
 
     $consulta = "SELECT * FROM ropa WHERE id IN ($ids)";
     $datos = mysqli_query($conexion, $consulta);

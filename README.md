@@ -53,6 +53,7 @@ El sitio cuenta con una vista pública tipo catálogo y un panel administrativo 
 - Modificación de prendas existentes.
 - Borrado de prendas.
 - Estilos propios centralizados en `tienda.css`.
+- Conexion a base de datos centralizada en `conexion.php`.
 
 ### Accesos principales
 
@@ -74,6 +75,7 @@ El sitio cuenta con una vista pública tipo catálogo y un panel administrativo 
 | Agregar al carrito | `Proyecto-Final/agregar_carrito.php` |
 | Quitar del carrito | `Proyecto-Final/quitar_carrito.php` |
 | Vaciar carrito | `Proyecto-Final/vaciar_carrito.php` |
+| Conexion a base de datos | `Proyecto-Final/conexion.php` |
 
 ---
 
@@ -123,6 +125,40 @@ Para ejecutar este repositorio se recomienda usar **XAMPP**.
 
 ```bash
 http://localhost/Programacion-Web-BackEnd/Proyecto-Final/index.php
+```
+
+---
+
+## Configuracion para InfinityFree
+
+El proyecto usa el archivo `Proyecto-Final/conexion.php` para centralizar la conexion a MySQL.
+
+En local, el archivo detecta XAMPP y usa:
+
+```php
+127.0.0.1 / root / tienda
+```
+
+En InfinityFree, el archivo usa la configuracion del hosting. Antes de subir la version final o despues de subirla desde el File Manager, completar solamente este valor:
+
+```php
+'password' => 'CAMBIAR_PASSWORD_INFINITYFREE',
+```
+
+con la password real de la base de datos del hosting.
+
+Si el sitio esta publicado como:
+
+```txt
+https://decompritas.infinityfree.io/index.php
+```
+
+subir el contenido de `Proyecto-Final/` dentro de `htdocs`, no la carpeta completa. De esa forma las rutas relativas como `tienda.css`, `navbar-carrito.js`, `img/logo-decompritas.svg` y `404.php` funcionan correctamente.
+
+Para que la pagina personalizada de error 404 funcione en InfinityFree, el archivo `Proyecto-Final/.htaccess` debe usar:
+
+```apache
+ErrorDocument 404 /404.php
 ```
 
 ---
@@ -218,6 +254,7 @@ Contraseña: 12345
 - Navegación consistente en las páginas del proyecto final.
 - Diseño responsive para escritorio, tablet y celular.
 - Reutilización de componentes visuales.
+- Configuracion centralizada de la conexion a MySQL.
 - Validación básica de formularios mediante HTML.
 - Redirecciones con `header()` en scripts PHP.
 - Documentación clara para instalación y ejecución.
